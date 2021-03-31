@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+    var count_click = 0;
+    var tiempo = 10; 
+function temporizador(){
+    var timer=document.getElementById("tiempo");
+    timer.innerHTML=tiempo;
+    var puntuacion= count_click/10;
+    tiempo--;
+    if(tiempo == -2){
+        alert (count_click);
+        alert("clicks por segundo: "+puntuacion);
+        location.reload();
+        
+    }
+} 
+var intervalo = setInterval('temporizador()',1000);
+var button = document.getElementById("contar");
+function anyadir(){
+    count_click++;     
+    console.log(count_click);
+}
+    window.addEventListener("click",function(){
+    anyadir();
+    }); 
+/* button.addEventListener('click',function (){
+});*/
+    function parar(){
+        clearInterval(intervalo);
+    }
+var count = document.getElementById("cl");
+</script>
+</head>
+<body>
+    <p id="tiempo"></p>
+    <p id="cl"></p>
+<button id="contar" onclick="parar();">Parar</button>
+</body>
+</html>

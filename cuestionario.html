@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario con JS</title>
+    <!--<script src="jquery-3.5.1.min.js"></script>-->
+    <script>
+        var score = 0;
+        var preguntas = [  //Array multidimencional que contiene pregunta y valor//
+            ['¿Cuántas lunas tiene la Tierra?',1],
+            ['¿Cuántas lunas tiene Saturno?',31],
+            ['¿Con qué planta desarrolló el abad Gregor Mendel comenzó sus investigaciones acerca de la transmisión de rasgos hereditarios?','Guisante'],
+            ['¿En qué año murió Kurt Cobain?',1994],
+            ['¿Quién creó el solo de la canción Beat It de Michael Jackson?','Eddie Van Halen'],
+            ['¿Cómo se llama el eterno presentador del programa de televisión Español Saber y Ganar emitido en la 2?','Jordi Hurtado'],
+            ['¿Qué escritor español escribió la obra titulada La Sombra del viento?','Carlos Ruíz Safón'],
+            ['¿En qué año se llevó a cabo el desembarco de Normandía',1944],
+            ['¿Qién ha sido el único compositor que ha ganado el  premio Nobel de literatura?','Bob Dylan'],
+            ['¿A qué filósofo presocrático se le atribuye la siguiente cita "Nunca pasarás por el mismo río"?','Heráclito']
+        ]; 
+        function hacerPregunta(preguntas){
+            var respuesta = prompt(preguntas[0],'');
+            if(respuesta == preguntas[1]){
+                alert ("Has acertado!");
+                score++;
+            }else{
+                alert("Se ha equivocado, la respuesta correcta es "+preguntas[1]);
+            }
+        }for(let i=0; i<preguntas.length; i++){  //cada vez que se recorre el bucle se envía un elemento de la matriz preguntas a la función //
+            hacerPregunta(preguntas[i]);
+        }
+    </script>
+</head>
+<body>
+    <h3 id="resultado"></h3>
+    <script>  
+    var resultado = document.getElementById("resultado");
+        var suspenso ='Lo sentimos, ha suspendido el examen, le rogamos que lo vuelva a intentar de nuevo';
+        var aprobado = 'Has aprobado!';
+        if(score >=5){
+            resultado.innerHTML=aprobado;
+        }else{ 
+            resultado.innerHTML=suspenso;
+        }
+        var mensaje = 'Usted ha acertado '+score
+        mensaje += ' de '+ preguntas.length;
+        mensaje += ' preguntas.';
+        document.write('<p>' + mensaje + '</p>');
+    </script>
+</body>
+</html>
