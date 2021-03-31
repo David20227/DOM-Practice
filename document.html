@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #micanvas{
+                background:linear-gradient(to bottom left,orange,  orangered);
+                width:1280px;
+                height: 720px;
+                border:5px solid rgb(151, 42, 2);
+                color:white;
+        }
+        div{width: 1920px; height: 1080px; overflow: scroll; background-color: rgb(202, 148, 0); color:white; border:10px solid brown; text-align:center}
+        p:nth-child(even){
+            font-weight: bold;
+            color:burlywood;
+        }
+        p:nth-child(even):hover{
+            font-size: 25px;
+            transition-delay: 0.1s;
+            text-transform: uppercase;
+            color:rgb(58, 7, 58);
+            transform:rotate(15deg);
+        }
+    </style>
+    <script>
+            alert("haga click en la página si desea visualizar el evento click");
+
+        document.addEventListener("click", function(){
+            var uno=document.getElementById("uno");
+            uno.style.color="orange";
+            uno.style.fontSize="80px";
+            uno.innerText="Se ha detectado el evento click ";
+            var canvas=document.getElementById("micanvas");
+            canvas.style.background="green";
+            canvas.style.border="20px solid yellow";
+
+    
+
+        
+        });
+        function create(){   
+            var numero=document.getElementById("numero").value; 
+            if(numero <=0){
+                alert("error, selecciona un número mayor a 0");
+                }else{  
+                    for(let i=0; i<=numero; i++){
+                        var p=document.createElement("p");
+                        var texto = document.createTextNode("Este es el párrafo número "+i);
+                        p.appendChild(texto);
+                        document.getElementsByTagName("div")[0].appendChild(p);
+                }
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <h1 id="uno"> </h1>
+    <canvas id="micanvas"></canvas><br>
+    <label for="numero">Agregue el número de párrafos que dese crear</label>
+    <input type="number" id="numero">
+    <button onclick="create();">Cree los párrafos</button><br>
+    <div></div>
+    <br>
+    <br>
+    
+</body>
+</html>
